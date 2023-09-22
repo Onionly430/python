@@ -1,0 +1,30 @@
+def present_result(x, y):
+    if x.isdigit() == True and y.isdigit() == True and int(x) > int(y) > 0:
+        print(f"The max. number is {int(x)} and the min. is {int(y)}.")
+    elif x.isdigit() == True and y.isdigit() == True and int(x) <= int(y):
+
+        while int(x) <= int(y):
+            x = input(
+                "Please make sure your first input is integer number and greater than second input: ")
+        return print(f"The Max. number is {int(x)} and the min. number is {int(y)}.")
+    elif x.isdigit() == False and y.isdigit() == True:
+
+        while x.isdigit() == False:
+            x = input(
+                "Please make sure your first input is integer number and greater than second input: ")
+            while int(x) <= int(y):
+                x = input(
+                    "Please make sure your first input is integer number and greater than second input: ")
+
+        return print(f"The max. number is {int(x)} and the min. number is {int(y)}.")
+
+    elif x.isdigit() == True and y.isdigit() == False:
+
+        while y.isdigit() == False:
+            y = input(
+                "Please make sure your second input is integer number and lesser than first input: ")
+            while int(x) <= int(y):
+                y = input(
+                    "Please make sure your second input is integer number and lesser than first input: ")
+
+        return print(f"The max. number is {int(x)} and the min. number is {int(y)}.")
