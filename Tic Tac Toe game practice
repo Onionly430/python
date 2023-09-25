@@ -1,0 +1,166 @@
+# Display the grid
+row1 = [' ', ' ', ' ']
+row2 = [' ', ' ', ' ']
+row3 = [' ', ' ', ' ']
+
+
+def display(row1, row2, row3):
+
+    print(row1)
+    print(row2)
+    print(row3)
+
+
+# display(row1, row2, row3)
+
+# user input
+def player1_enter():
+
+    player1_input = input("Player one, plase enter your number between 1-9: ")
+    while not player1_input.isdigit() or int(player1_input) > 9 or int(player1_input) < 1:
+        player1_input = input(
+            "Please check your input again, it should be a number between 1 - 9: ")
+    # return player1_input
+    # 注意if迴圈要在while外!!!
+    if 0 < int(player1_input) < 4:
+        if row3[int(player1_input)-1] == ' ':
+            row3[int(player1_input)-1] = 'O'
+
+        else:
+            while row3[int(player1_input)-1] != ' ':
+                return print("This position has been occupied")
+                # print(row1)
+    elif 3 < int(player1_input) < 7:
+        if row2[int(player1_input)-4] == ' ':
+            row2[int(player1_input)-4] = 'O'
+        else:
+            while row2[int(player1_input)-4] != ' ':
+                return print("This position has been occupied")
+    else:
+        if row1[int(player1_input)-7] == ' ':
+            row1[int(player1_input)-7] = 'O'
+        else:
+            while row1[int(player1_input)-7] != ' ':
+                return print("This position has been occupied")
+
+
+def player2_enter():
+    player2_input = input("Player two, plase enter your number between 1-9: ")
+    while not player2_input.isdigit() or int(player2_input) > 9 or int(player2_input) < 1:
+        player2_input = input(
+            "Please check your input again, it should be a number between 1 - 9: ")
+    # return player2_input
+    if 0 < int(player2_input) < 4:
+        if row3[int(player2_input)-1] == ' ':
+            row3[int(player2_input)-1] = 'X'
+        else:
+            while row3[int(player2_input)-1] != ' ':
+                return print("This position has been occupied")
+        # print(row1)
+    elif 3 < int(player2_input) < 7:
+        if row2[int(player2_input)-4] == ' ':
+            row2[int(player2_input)-4] = 'X'
+        else:
+            while row2[int(player2_input)-4] != ' ':
+                return print("This position has been occupied")
+    else:
+        if row1[int(player2_input)-7] == ' ':
+            row1[int(player2_input)-7] = 'X'
+        else:
+            while row1[int(player2_input)-7] != ' ':
+                return print("This position has been occupied")
+
+
+# winning check
+
+
+def check_winning():
+    result = ""
+    if row1[0] == 'O' and row1[1] == 'O' and row1[2] == 'O':
+        result = "Congrats! Player 1 win."
+        print(result)
+        return result
+    elif row1[0] == 'X' and row1[1] == 'X' and row1[2] == 'X':
+        result = "Congrats! Player 2 win."
+        print(result)
+        return result
+    elif row2[0] == 'O' and row2[1] == 'O' and row2[2] == 'O':
+        result = "Congrats! Player 1 win."
+        print(result)
+        return result
+    elif row2[0] == 'X' and row2[1] == 'X' and row2[2] == 'X':
+        result = "Congrats! Player 2 win."
+        print(result)
+        return result
+    elif row3[0] == 'O' and row3[1] == 'O' and row3[2] == 'O':
+        result = "Congrats! Player 1 win."
+        print(result)
+        return result
+    elif row3[0] == 'X' and row3[1] == 'X' and row3[2] == 'X':
+        result = "Congrats! Player 2 win."
+        print(result)
+        return result
+    elif row1[0] == 'O' and row2[1] == 'O' and row3[2] == 'O':
+        result = "Congrats! Player 1 win."
+        print(result)
+        return result
+    elif row1[0] == 'X' and row2[1] == 'X' and row3[2] == 'X':
+        result = "Congrats! Player 2 win."
+        print(result)
+        return result
+    elif row3[0] == 'O' and row2[1] == 'O' and row1[2] == 'O':
+        result = "Congrats! Player 1 win."
+        print(result)
+        return result
+    elif row3[0] == 'X' and row2[1] == 'X' and row1[2] == 'X':
+        result = "Congrats! Player 2 win."
+        print(result)
+        return result
+    elif row1[0] == 'O' and row2[0] == 'O' and row3[0] == 'O':
+        result = "Congrats! Player 1 win."
+        print(result)
+        return result
+    elif row1[0] == 'X' and row2[0] == 'X' and row3[0] == 'X':
+        result = "Congrats! Player 2 win."
+        print(result)
+        return result
+    elif row1[1] == 'O' and row2[1] == 'O' and row3[1] == 'O':
+        result = "Congrats! Player 1 win."
+        print(result)
+        return result
+    elif row1[1] == 'X' and row2[1] == 'X' and row3[1] == 'X':
+        result = "Congrats! Player 2 win."
+        print(result)
+        return result
+    elif row1[2] == 'O' and row2[2] == 'O' and row3[2] == 'O':
+        result = "Congrats! Player 1 win."
+        print(result)
+        return result
+    elif row1[2] == 'X' and row2[2] == 'X' and row3[2] == 'X':
+        result = "Congrats! Player 2 win."
+        print(result)
+        return result
+# grid update
+
+
+def grid_update():
+
+    for i in range(1, 10):
+        # print(check_winning())
+
+        if check_winning():
+            break
+        # print(i)
+        if i % 2 == 1:
+            player1_enter()
+            display(row1, row2, row3)
+
+        elif i % 2 == 0:
+            player2_enter()
+            display(row1, row2, row3)
+
+        if i == 9:
+            print("No one wins!")
+
+
+grid_update()
