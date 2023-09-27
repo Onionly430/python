@@ -1,0 +1,9 @@
+def position(x):
+    for index, value in enumerate(x):
+        if value == value.upper():
+            return (value, index)
+    return -1
+
+
+print(position('abcd'))
+print(position('abCd'))
