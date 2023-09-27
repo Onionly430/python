@@ -1,0 +1,72 @@
+import random as rd
+
+
+def present_result(x, y):
+    if x.isdigit() == True and y.isdigit() == True and int(x) > int(y) > 0:
+        print(f"The max. number is {int(x)} and the min. is {int(y)}.")
+    elif x.isdigit() == True and y.isdigit() == True and int(x) <= int(y):
+
+        while int(x) <= int(y):
+            x = input(
+                "Please make sure your first input is integer number and greater than second input: ")
+        return print(f"The Max. number is {int(x)} and the min. number is {int(y)}.")
+    elif x.isdigit() == False and y.isdigit() == True:
+
+        while x.isdigit() == False:
+            x = input(
+                "Please make sure your first input is integer number and greater than second input: ")
+            while int(x) <= int(y):
+                x = input(
+                    "Please make sure your first input is integer number and greater than second input: ")
+
+        return print(f"The max. number is {int(x)} and the min. number is {int(y)}.")
+
+    elif x.isdigit() == True and y.isdigit() == False:
+
+        while y.isdigit() == False:
+            y = input(
+                "Please make sure your second input is integer number and lesser than first input: ")
+            while int(x) <= int(y):
+                y = input(
+                    "Please make sure your second input is integer number and lesser than first input: ")
+
+        return print(f"The max. number is {int(x)} and the min. number is {int(y)}.")
+
+
+def findAllSmall(x, y):
+    # print(y)
+    x.reverse()
+    for i in range(0, len(x)):
+      #   print(x[i])
+        #   print(i)
+        if x[0] >= y:
+            x.remove(x[0])
+    x.reverse()
+    print(f"The updated list is {x}")
+
+# first input: the range is?
+
+
+user_input_max = input("Please enther your maximum int. number of your list: ")
+user_input_min = input("Please enther your minimum int. number of your list: ")
+
+present_result(user_input_max, user_input_min)
+user_set = {''}
+
+# j = rd.randint(int(user_input_min), int(user_input_max))
+# user_list.append(j)
+# print(user_list)
+times = int(
+    input("How many numbers you'd like to put in your list? Please enter: "))
+for i in range(0, times):
+    j = rd.randint(int(user_input_min), int(user_input_max))
+    user_set.add(str(j))
+user_set.remove('')
+user_set_int = set(map(int, user_set))
+user_list = list(user_set_int)
+sorted_list = user_list.sort()
+compared_number = rd.randrange(int(user_input_min), int(user_input_max))
+print(f"The list is {user_list}")
+print(
+    f"The compare number will be {compared_number} ")
+findAllSmall(user_list, compared_number)
