@@ -1,0 +1,4 @@
+import sys
+import io
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
+print("你好，世界".encode('utf-8').decode(sys.stdout.encoding))
